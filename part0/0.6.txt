@@ -1,0 +1,6 @@
+note over browser
+Browser exuctes sendToServer function on form submit which sends an XMLHttpRequest requst to the server
+end note
+browser->server: HTTP POST {content: "test", date: "2021-08-04T19:04:26.206Z"} https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}
+

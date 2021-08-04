@@ -1,0 +1,14 @@
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML page
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: Styles(main.css) 
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: Javascript (spa.js)
+note over browser
+Browser starts executing the spa.js file
+end note over 
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{content: "test", date: "2021-08-04T07:04:57.009Z"},...]
+note over browser
+Browser starts executing onload event and redraws the notes on the page
+end note
