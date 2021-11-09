@@ -2,17 +2,9 @@ import React, {useState} from "react";
 
 const App = () => {
 
-  const Display = ({counter}) => {
-    return(
-      <div>{counter}</div>
-    )
-  }
+  const Display = ({counter}) =>  <div>{counter}</div>
 
-  const Button = ({method, text}) => {
-    return (
-      <button style={{background: "yellow"}} onClick={method}>{text}</button>
-    )
-  }
+  const Button = ({method, text}) => <button style={{background: "yellow"}} onClick={method}>{text}</button>
   
   const [counter, setCounter] = useState(0)
 
