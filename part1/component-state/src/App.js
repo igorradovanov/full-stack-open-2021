@@ -1,6 +1,18 @@
 import React, {useState} from "react";
 
 const App = () => {
+
+  const Display = ({counter}) => {
+    return(
+      <div>{counter}</div>
+    )
+  }
+
+  const Button = ({method, text}) => {
+    return (
+      <button style={{background: "yellow"}} onClick={method}>{text}</button>
+    )
+  }
   
   const [counter, setCounter] = useState(0)
 
@@ -10,10 +22,10 @@ const App = () => {
 
   return(
     <div>
-      <h1>{counter}</h1>
-      <button onClick={increaseByOne}>Add</button>
-      <button onClick={decreaseByOne}>Substract</button>
-      <button onClick={setToZero}>Zero</button>
+      <h1><Display counter={counter}></Display></h1>
+      <Button method={increaseByOne} text="Add" />
+      <Button method={decreaseByOne} text="Decrease" />
+      <Button method={setToZero} text="Zero" />
     </div>
   )
 }
