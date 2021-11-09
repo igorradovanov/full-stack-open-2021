@@ -1,13 +1,16 @@
 import React, {useState} from "react";
 
 const App = () => {
-
+  
   const [counter, setCounter] = useState(0)
 
-  setTimeout(() => setCounter (counter +1 ), 1000)
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
   return(
     <div>
-      {counter}
+      <button onKeyPress={handleClick}>+</button>
     </div>
   )
 }
