@@ -4,13 +4,16 @@ const App = () => {
   
   const [counter, setCounter] = useState(0)
 
-  const handleClick = () => {
-    console.log('clicked')
-  }
+  const increaseByOne = () => setCounter(counter + 1)
+  const decreaseByOne = () => setCounter(counter - 1)
+  const setToZero = () => setCounter(0)
 
   return(
     <div>
-      <button onKeyPress={handleClick}>+</button>
+      <h1>{counter}</h1>
+      <button onClick={increaseByOne}>Add</button>
+      <button onClick={decreaseByOne}>Substract</button>
+      <button onClick={setToZero}>Zero</button>
     </div>
   )
 }
