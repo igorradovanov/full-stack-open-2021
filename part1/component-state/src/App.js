@@ -5,14 +5,23 @@ const App = () => {
   const [right, setRight] = useState(0)
   const [allClicks, setAll] = useState([])
 
+  const handleLeftCLick = () => {
+    setAll(allClicks.concat('L'))
+    setLeft(left + 1)
+  }
+
+  const handleRightClick = () => {
+    setAll(allClicks.concat('R'))
+    setRight(right + 1)
+  }
 
   return (
     <div>
       {left}
-      <button onClick={() => setLeft(left + 1)}>
+      <button onClick={() => handleLeftCLick()}>
         left
       </button>
-      <button onClick={() => setRight(right + 1)}>
+      <button onClick={() => handleRightClick()}>
         right
       </button>
       {right}
