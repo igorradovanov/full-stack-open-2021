@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const App = () => {
   const anecdotes = [
@@ -10,10 +10,10 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
-   
-  const [selected, setSelected] = useState(0)
 
   //Implement next anecdote
+  
+   const [selected, setSelected] = useState(0)
 
   const nextAnecdote = () => {
     let num = Math.floor(Math.random() * anecdotes.length)
@@ -28,14 +28,30 @@ const App = () => {
     const copy = [...votes]
     copy[selected] = copy[selected] + 1
     setVotes(copy) 
+    console.log(votes)
   }
+
+
+  //Implement popular anecdotes
+
+  const[popular, setPopular] = useState(0)
+
+  useEffect(() => {
+  let isLargestVote = (el) => el === Math.max(...votes)
+  let max = votes.findIndex(isLargestVote)
+  setPopular(max)
+  }, [votes])
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>has votes {votes[selected]}</p> 
       <button onClick={() => {voteAnecdote()}}>vote</button> 
       <button onClick={() => {nextAnecdote()}}>next anecdote</button>
+      <h1>Anecdote with most votes</h1>
+      <p>{anecdotes[popular]}</p>
+      
     </div>
   )
 }
